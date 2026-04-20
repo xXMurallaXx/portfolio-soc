@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/main.astro';
+---
+
+<Layout title="Certificaciones | Salón de la Fama">
+	<main class="min-h-screen p-8 bg-slate-900">
+		<div class="max-w-5xl mx-auto w-full mt-10">
+
+			<header class="mb-12 border-b border-slate-800 pb-8">
+				<h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight flex items-center gap-4">
+					<svg class="w-10 h-10 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+					Salón de la Fama
+				</h1>
+				<p class="text-slate-400 mt-4 text-lg max-w-2xl">
+					Validaciones oficiales y credenciales técnicas. El respaldo institucional a la arquitectura desplegada en los laboratorios y el compromiso con el aprendizaje continuo.
+				</p>
+			</header>
+
+			<h2 class="text-2xl font-bold text-white mb-6">Certificaciones Activas</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+
+				<div class="bg-slate-800/50 rounded-xl border border-slate-700 hover:border-indigo-500 transition-colors p-6 flex flex-col items-center text-center group">
+					<div class="w-28 h-28 bg-slate-900 rounded-2xl mb-4 border border-slate-700 group-hover:border-indigo-500 flex items-center justify-center p-2 transition-colors overflow-hidden">
+						<img src="/img/certificaciones/fca-badge.png" alt="Fortinet Certified Associate" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+					</div>
+					<h2 class="text-lg font-bold text-white mb-1">Fortinet Certified Associate (FCA)</h2>
+					<p class="text-indigo-400 text-xs font-mono mb-3">Válido hasta: Enero 2028</p>
+					<p class="text-slate-400 text-xs mb-6 flex-grow">Validación oficial de conocimientos en ciberseguridad, incluyendo la operación técnica de FortiGate y configuración de políticas de seguridad.</p>
+					<a href="https://www.credly.com/users/francisco-jose-alpuente-santos" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700 font-mono text-xs py-2 px-4 rounded transition-colors flex items-center justify-center gap-2">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+						Ver en Credly
+					</a>
+				</div>
+
+				<div class="bg-slate-800/50 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors p-6 flex flex-col items-center text-center group">
+					<div class="w-28 h-28 bg-slate-900 rounded-2xl mb-4 border border-slate-700 group-hover:border-sky-500 flex items-center justify-center p-2 transition-colors overflow-hidden">
+						<img src="/img/certificaciones/fcf-badge.png" alt="Fortinet Certified Fundamentals" class="w-full h-full object-contain transform group-hover:scale-105 transition-transform">
+					</div>
+					<h2 class="text-lg font-bold text-white mb-1">Fortinet Certified Fundamentals (FCF)</h2>
+					<p class="text-sky-400 text-xs font-mono mb-3">Válido hasta: Enero 2028</p>
+					<p class="text-slate-400 text-xs mb-6 flex-grow">Acreditación fundamental sobre el panorama actual de amenazas y los conceptos técnicos base de la ciberseguridad defensiva.</p>
+					<a href="https://www.credly.com/users/francisco-jose-alpuente-santos" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-900 hover:bg-slate-800 text-sky-400 border border-slate-700 font-mono text-xs py-2 px-4 rounded transition-colors flex items-center justify-center gap-2">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+						Ver en Credly
+					</a>
+				</div>
+
+			</div>
+
+			<h2 class="text-2xl font-bold text-white mb-6">Práctica en Vivo y Especialización</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+				
+				<div class="bg-slate-800/30 rounded-xl border border-slate-700 p-6 flex flex-col justify-center items-center text-center">
+					<h3 class="text-white font-bold mb-4 flex items-center gap-2">
+						<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+						Métricas de TryHackMe
+					</h3>
+					<div class="mb-4 w-full flex justify-center">
+						<img src="https://tryhackme-badges.s3.amazonaws.com/Muralla.png?v=124" alt="TryHackMe Live Badge - Muralla" class="drop-shadow-xl rounded">
+					</div>
+					<p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+						Insignia conectada por API. Demuestra mi rango actual, máquinas comprometidas y la racha de días consecutivos en la plataforma, evidenciando un entrenamiento técnico diario.
+					</p>
+				</div>
+
+				<div class="bg-slate-800/30 rounded-xl border border-slate-700 p-6 flex flex-col justify-center">
+					<div class="flex items-center gap-4 mb-4">
+						<div class="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center text-[#0A66C2] font-bold text-2xl border border-slate-700 flex-shrink-0">in</div>
+						<div>
+							<h3 class="text-white font-bold">LinkedIn Learning</h3>
+							<p class="text-emerald-400 text-sm font-mono">+50 Cursos Finalizados</p>
+						</div>
+					</div>
+					<p class="text-slate-400 text-sm leading-relaxed mb-4">
+						Historial académico consolidado. Más de 50 certificaciones de finalización que avalan una base tecnológica transversal sólida.
+					</p>
+					<div class="flex flex-wrap gap-2 mt-auto">
+						<span class="bg-slate-900 text-slate-300 text-xs px-2 py-1 rounded border border-slate-700">Administración de Sistemas</span>
+						<span class="bg-slate-900 text-slate-300 text-xs px-2 py-1 rounded border border-slate-700">Redes</span>
+						<span class="bg-slate-900 text-slate-300 text-xs px-2 py-1 rounded border border-slate-700">Ciberseguridad</span>
+					</div>
+				</div>
+
+			</div>
+
+			<h2 class="text-2xl font-bold text-white mb-6">Objetivos a Corto Plazo</h2>
+			<div class="bg-slate-800/30 rounded-xl border border-slate-700 p-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="flex items-start gap-4">
+						<div class="w-10 h-10 rounded-full bg-slate-900 border border-amber-500/50 flex items-center justify-center flex-shrink-0 mt-1">
+							<svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+						</div>
+						<div>
+							<h3 class="text-white font-bold text-lg">CompTIA Security+</h3>
+							<p class="text-amber-400 text-xs font-mono mb-2">Preparación activa</p>
+							<p class="text-slate-400 text-sm">Consolidación de estándares globales de seguridad, gestión de riesgos y criptografía para validar el conocimiento base del SOC.</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-4">
+						<div class="w-10 h-10 rounded-full bg-slate-900 border border-amber-500/50 flex items-center justify-center flex-shrink-0 mt-1">
+							<svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+						</div>
+						<div>
+							<h3 class="text-white font-bold text-lg">Microsoft AZ-800</h3>
+							<p class="text-amber-400 text-xs font-mono mb-2">Windows Server Hybrid</p>
+							<p class="text-slate-400 text-sm">Alineado directamente con la arquitectura de mi laboratorio corporativo. Administración avanzada de Active Directory, GPOs e identidades híbridas.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+</Layout>

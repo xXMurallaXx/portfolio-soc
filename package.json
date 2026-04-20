@@ -18,5 +18,8 @@
     "astro": "^6.1.6",
     "canvas-confetti": "^1.9.4",
     "tailwindcss": "^4.2.1"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

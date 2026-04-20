@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/main.astro';
+---
+
+<Layout title="Security Coach | EDR & AppSec">
+	<main class="min-h-screen p-8 bg-slate-900">
+		<div class="max-w-4xl mx-auto w-full mt-10">
+			
+			<a href="/proyectos" class="inline-flex items-center text-sky-400 hover:text-sky-300 font-mono text-sm mb-8 transition-colors">
+				<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+				Volver a Proyectos
+			</a>
+
+			<header class="mb-12">
+				<div class="flex items-center gap-3 mb-4">
+					<span class="text-sky-400 font-mono text-xs font-semibold tracking-wider uppercase bg-sky-900/30 px-3 py-1 rounded-full border border-sky-700/50">AppSec & EDR</span>
+					<span class="text-emerald-400 font-mono text-xs font-semibold tracking-wider uppercase bg-emerald-900/30 px-3 py-1 rounded-full border border-emerald-700/50">Finalizado</span>
+				</div>
+				<h1 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Security Coach (Endpoint Detection & Response)</h1>
+				<p class="text-xl text-slate-400 leading-relaxed">
+					Desarrollo, despliegue corporativo e integración SIEM de un EDR personalizado en formato extensión de navegador (Manifest V3). Diseñado para la protección proactiva contra phishing, ingeniería social, exfiltración de datos y fraude financiero, integrando telemetría en tiempo real con Wazuh.
+				</p>
+			</header>
+
+			<article class="prose prose-invert prose-slate max-w-none">
+				
+				<section class="mb-12 bg-slate-800/30 p-8 rounded-2xl border border-slate-700">
+					<h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+						<svg class="w-6 h-6 mr-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+						Arquitectura del Sistema
+					</h2>
+					<ul class="space-y-4 text-slate-300">
+						<li><strong class="text-sky-400">Sensor Frontend (EDR):</strong> Extensión compilada (.crx) desarrollada con HTML/JS y Manifest V3. Interactúa con el Main World del navegador mediante API Hooking para intervenciones físicas en el DOM (ej. deshabilitar inputs de contraseñas).</li>
+						<li><strong class="text-sky-400">Motor Backend:</strong> API asíncrona desarrollada en Python utilizando FastAPI y Uvicorn para la ingesta y análisis de telemetría con latencia casi nula.</li>
+						<li><strong class="text-sky-400">Despliegue Corporativo (GPO):</strong> Administración mediante plantillas ADMX en Active Directory y directiva <code>ExtensionInstallForcelist</code> para instalación forzada, servida a través de un IIS local.</li>
+					</ul>
+				</section>
+
+<h2 class="text-2xl font-bold text-white mb-6">Motor de Detección Avanzada y Operaciones</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+					
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Anti-Phishing Heurístico</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Implementación del algoritmo de distancia de Levenshtein para identificar suplantaciones tipográficas (Typosquatting) en tiempo real, sumado a protección anti-homógrafos (Punycode).</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Zero-Trust & k-Anonymity</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Integración con HaveIBeenPwned mediante el modelo k-Anonymity (enviando solo los primeros 5 caracteres del hash SHA-1 local) para garantizar la privacidad de las credenciales introducidas.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Threat Intelligence Global</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Integración en tiempo real con la API de Google Safe Browsing. Evaluación al vuelo de URLs contra bases de datos globales para el bloqueo preventivo de infraestructuras catalogadas como Malware.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Inteligencia de Dominios (WHOIS)</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Consultas automatizadas para extraer la fecha de registro (Creation Date). Detección y bloqueo proactivo de Newly Registered Domains (NRDs), un IoC crítico en campañas efímeras.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">DLP & Exfiltración</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Validación matemática local (Algoritmo de Luhn) y bloqueo preventivo de copia/pega en campos sensibles para evitar exfiltración de tarjetas bancarias.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Auditoría HSTS / CSP</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Inspección de cabeceras HTTP al vuelo. Bloqueo de capturas de credenciales en sitios sin políticas estrictas de cifrado o mitigación XSS cruzado.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Data Masking & Privacy</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Sanitización automatizada mediante Expresiones Regulares (Regex) para censurar PII y tokens en parámetros GET antes del almacenamiento local, cumpliendo normativas RGPD.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">ChatOps & Resiliencia</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Envío de webhooks vía Telegram para alertar al SOC de incidentes críticos. Incluye "Kill Switch" para destrucción de pestañas comprometidas y Rate Limiting Anti-DoS en el backend.</p>
+					</div>
+
+				</div>
+
+				<section class="mb-12 border-l-4 border-indigo-500 pl-6 py-2">
+					<h2 class="text-2xl font-bold text-white mb-4">Integración SIEM & Threat Hunting</h2>
+					<p class="text-slate-300 leading-relaxed mb-4">
+						La telemetría fluye hacia Wazuh en formato JSON estructurado. Se diseñó un diccionario de reglas personalizadas (IDs 100100 a 100113) mapeando las alertas directamente al framework <strong>MITRE ATT&CK</strong>:
+					</p>
+					<div class="flex flex-wrap gap-3">
+						<span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-sm border border-slate-700">T1566 Phishing</span>
+						<span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-sm border border-slate-700">T1110 Credential Access</span>
+						<span class="bg-slate-800 text-slate-300 px-3 py-1 rounded text-sm border border-slate-700">T1567 Exfiltration</span>
+					</div>
+				</section>
+
+<section class="mt-16 border-t border-slate-800 pt-12">
+					<h2 class="text-2xl font-bold text-white mb-8 flex items-center">
+						<svg class="w-6 h-6 mr-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+						Evidencias de Despliegue e Integración
+					</h2>
+					
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+						
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50">
+							<div class="aspect-video overflow-hidden bg-slate-900 flex items-center justify-center p-2">
+								<img src="/img/security-coach/wazuh-alerts.png" alt="Dashboard de Wazuh Discover mostrando alertas correlacionadas con MITRE T1566" class="w-full h-auto object-contain rounded transform group-hover:scale-105 transition-transform duration-500">
+							</div>
+							<div class="p-4 border-t border-slate-700">
+								<h4 class="text-sky-400 font-bold text-sm mb-1">Integración SIEM (Wazuh)</h4>
+								<p class="text-slate-400 text-xs">Reglas personalizadas (100100/100101) ingiriendo telemetría del EDR y mapeando tácticas de Initial Access (T1566) en tiempo real.</p>
+							</div>
+						</div>
+
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50">
+							<div class="aspect-video overflow-hidden bg-slate-900 flex items-center justify-center p-2">
+								<img src="/img/security-coach/gpo-deployment.png" alt="Consola de administración de directivas de grupo mostrando el despliegue de Security Coach" class="w-full h-auto object-contain rounded transform group-hover:scale-105 transition-transform duration-500">
+							</div>
+							<div class="p-4 border-t border-slate-700">
+								<h4 class="text-sky-400 font-bold text-sm mb-1">Despliegue Corporativo (GPO)</h4>
+								<p class="text-slate-400 text-xs">Administración del Active Directory forzando la instalación irreversible del agente en los endpoints mediante políticas de grupo.</p>
+							</div>
+						</div>
+
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50">
+							<div class="aspect-video overflow-hidden bg-slate-900 flex items-center justify-center p-2">
+								<img src="/img/security-coach/telegram-webhook.png" alt="Alerta crítica de seguridad recibida a través de Telegram vía Webhook" class="w-full h-auto object-contain rounded transform group-hover:scale-105 transition-transform duration-500">
+							</div>
+							<div class="p-4 border-t border-slate-700">
+								<h4 class="text-sky-400 font-bold text-sm mb-1">Notificaciones SOC (ChatOps)</h4>
+								<p class="text-slate-400 text-xs">Webhook automatizado enviado desde el backend en FastAPI alertando al equipo de respuesta ante un login crítico en HTTP plano.</p>
+							</div>
+						</div>
+
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50">
+							<div class="aspect-[4/3] overflow-hidden bg-slate-900 flex items-center justify-center p-2">
+								<img src="/img/security-coach/extension-popup.png" alt="Interfaz de usuario de la extensión Security Coach mostrando estadísticas de amenazas" class="h-full w-auto object-contain rounded transform group-hover:scale-105 transition-transform duration-500">
+							</div>
+							<div class="p-4 border-t border-slate-700">
+								<h4 class="text-sky-400 font-bold text-sm mb-1">Sensor EDR Frontend</h4>
+								<p class="text-slate-400 text-xs">Panel de control del agente en el navegador procesando más de 25.000 detecciones heurísticas y supervisando la salud de contraseñas.</p>
+							</div>
+						</div>
+
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50">
+							<div class="aspect-video overflow-hidden bg-slate-900 flex items-center justify-center p-2">
+								<img src="/img/security-coach/soc-dashboard.png" alt="Dashboard de Threat Intelligence del SOC mostrando gráficas de riesgo e incidentes" class="w-full h-auto object-contain rounded transform group-hover:scale-105 transition-transform duration-500">
+							</div>
+							<div class="p-4 border-t border-slate-700">
+								<h4 class="text-sky-400 font-bold text-sm mb-1">Threat Intelligence Dashboard</h4>
+								<p class="text-slate-400 text-xs">Panel de control ejecutivo generado dinámicamente desde el backend, mostrando métricas de interceptación, distribución de riesgo e historial de incidentes.</p>
+							</div>
+						</div>
+
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50">
+							<div class="aspect-video overflow-hidden bg-slate-900 flex items-center justify-center p-2">
+								<img src="/img/security-coach/password-alert.png" alt="Alerta roja en el navegador advirtiendo sobre una contraseña filtrada" class="w-full h-auto object-contain rounded transform group-hover:scale-105 transition-transform duration-500">
+							</div>
+							<div class="p-4 border-t border-slate-700">
+								<h4 class="text-sky-400 font-bold text-sm mb-1">Interceptación Activa (Zero-Trust)</h4>
+								<p class="text-slate-400 text-xs">Bloqueo y alerta en tiempo real disparada en el DOM tras validar el hash truncado de la credencial contra la API de HaveIBeenPwned (k-Anonymity).</p>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+			</article>
+		</div>
+	<div id="imageModal" class="fixed inset-0 z-[100] hidden bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out transition-all duration-300">
+			<span class="absolute top-6 right-8 text-slate-400 text-5xl font-light cursor-pointer hover:text-sky-400 transition-colors">&times;</span>
+			<img id="modalImg" class="max-w-full max-h-full rounded-lg shadow-2xl shadow-black/50 border border-slate-700 object-contain" src="" alt="Vista ampliada de la evidencia">
+		</div>
+	</main>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const modal = document.getElementById('imageModal');
+			const modalImg = document.getElementById('modalImg') as HTMLImageElement;
+			// Seleccionamos todas las imágenes dentro de la galería
+			const images = document.querySelectorAll('section.mt-16 img'); 
+
+			// Hacer que todas las imágenes abran el visor
+			images.forEach(img => {
+				const image = img as HTMLImageElement;
+				image.style.cursor = 'zoom-in'; // Cambia el cursor al pasar el ratón
+				image.addEventListener('click', () => {
+					modalImg.src = image.src;
+					modal.classList.remove('hidden');
+				});
+			});
+
+			// Cerrar el visor al hacer clic en cualquier parte oscura
+			modal.addEventListener('click', () => {
+				modal.classList.add('hidden');
+			});
+
+			// Cerrar el visor al pulsar la tecla Escape (Hardening de usabilidad)
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					modal.classList.add('hidden');
+				}
+			});
+		});
+	</script>
+</Layout>

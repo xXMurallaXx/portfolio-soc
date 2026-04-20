@@ -1,0 +1,193 @@
+---
+import Layout from '../../layouts/main.astro';
+---
+
+<Layout title="Enterprise SOC Lab | Blue Team & Threat Hunting">
+	<main class="min-h-screen p-8 bg-slate-900">
+		<div class="max-w-4xl mx-auto w-full mt-10">
+			
+			<a href="/proyectos" class="inline-flex items-center text-indigo-400 hover:text-indigo-300 font-mono text-sm mb-8 transition-colors">
+				<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+				Volver a Proyectos
+			</a>
+
+			<header class="mb-12">
+				<div class="flex items-center gap-3 mb-4">
+					<span class="text-indigo-400 font-mono text-xs font-semibold tracking-wider uppercase bg-indigo-900/30 px-3 py-1 rounded-full border border-indigo-700/50">Blue Team & Infra</span>
+					<span class="text-emerald-400 font-mono text-xs font-semibold tracking-wider uppercase bg-emerald-900/30 px-3 py-1 rounded-full border border-emerald-700/50 flex items-center gap-2">
+						<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+						En Progreso
+					</span>
+				</div>
+				<h1 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Enterprise SOC & Threat Hunting Lab</h1>
+				<p class="text-xl text-slate-400 leading-relaxed">
+					Diseño, despliegue y administración de un Centro de Operaciones de Seguridad (SOC) empresarial. Infraestructura virtualizada para habilitar capacidades avanzadas de Blue Team, Threat Hunting y simulaciones de ataques (Red Team) mediante segmentación estricta y auditoría profunda de kernel.
+				</p>
+			</header>
+
+			<article class="prose prose-invert prose-slate max-w-none">
+				
+				<section class="mb-12 bg-slate-800/30 p-8 rounded-2xl border border-slate-700">
+					<h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+						<svg class="w-6 h-6 mr-3 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+						Topología y Enrutamiento Core
+					</h2>
+					<p class="text-slate-300 mb-4">Abandono de diseños de red plana en favor de una segmentación lógica estricta mediante VMware (Bridged Mode) y NGFW.</p>
+					<ul class="space-y-4 text-slate-300">
+						<li><strong class="text-indigo-400">Zona 1 (Red SOC - 10.10.10.0/24):</strong> Alojamiento del cerebro SIEM (Ubuntu + Wazuh Manager v4.8) e infraestructura de atacante (Kali Linux) inyectada para simulaciones de compromiso.</li>
+						<li><strong class="text-indigo-400">Zona 2 (Red Corporativa - 10.20.20.0/24):</strong> Entorno víctima compuesto por un Controlador de Dominio (Windows Server 2022) y endpoints corporativos mixtos (Windows 10 Pro y Ubuntu Desktop).</li>
+						<li><strong class="text-emerald-400">Hito Arquitectónico:</strong> Configuración de enrutamiento inter-VLAN en FortiGate desactivando el NAT entre la Red SOC y Corporativa, garantizando la trazabilidad absoluta de las IPs de origen atacantes en los logs del SIEM.</li>
+					</ul>
+				</section>
+
+				<h2 class="text-2xl font-bold text-white mb-6">Pilares Defensivos y Ofensivos</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+					
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Hardening Active Directory</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Creación de GPOs empresariales para habilitar auditoría a nivel de kernel (Event ID 4625/4624 y 4688) mitigando técnicas LotL. Configuración estricta de sincronización NTP para proteger la criptografía Kerberos.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Visibilidad Multiplataforma (XDR)</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Despliegue unificado de agentes Wazuh con 100% de cobertura. Activación del módulo Vulnerability Detector para cruzar el software de los endpoints con la base de datos global de CVEs del NIST. Ingesta centralizada de telemetría perimetral enviando logs del NGFW (FortiGate) por Syslog al SIEM para correlacionar ataques a nivel de red.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Privilegios y Zero Trust</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Implementación de Microsoft LAPS para rotación automatizada de credenciales locales. Aplicación de Zero Trust en el endpoint mediante AppLocker, bloqueando binarios a nivel de kernel con reglas de firma digital (Publisher Rules).</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Identidad Híbrida y PAW</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Integración de Ubuntu en AD mediante realmd/SSSD. Despliegue de Windows Admin Center en modo Gateway operando como Privileged Access Workstation (PAW), protegiendo al DC sin exposición interactiva (Mitigación Pass-the-Hash).</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-sky-500 transition-colors md:col-span-2">
+						<h3 class="text-lg font-bold text-white mb-3">Custom EDR & Threat Intelligence</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Desarrollo y despliegue multiplataforma de la extensión "Security Coach" mediante GPOs e IIS. Ingesta de logs personalizados en Wazuh creando decodificadores y reglas XML propias, mapeando alertas de Phishing directamente al framework MITRE ATT&CK (ej. T1566, T1584).</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-red-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Simulación Red Team (T1110)</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Operación de validación de canalización de eventos. Bypass de restricciones NLA y ejecución de ataques de diccionario masivos contra el protocolo SMB del Controlador de Dominio utilizando NetExec.</p>
+					</div>
+
+					<div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-indigo-500 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Threat Hunting Activo</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">Aislamiento de eventos de ataque en el dashboard de Wazuh mediante consultas KQL/Lucene, confirmando la correcta atribución táctica a la IP origen del Red Team.</p>
+					</div>
+
+				</div>
+
+<section class="mt-16 border-t border-slate-800 pt-12">
+					<h2 class="text-2xl font-bold text-white mb-8 flex items-center">
+						<svg class="w-6 h-6 mr-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+						Evidencias del Laboratorio (Ataque vs Defensa)
+					</h2>
+					
+					<div class="grid grid-cols-1 gap-8">
+						
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50">
+							<div class="grid grid-cols-1 md:grid-cols-2 bg-slate-900">
+								
+								<div class="flex flex-col border-b md:border-b-0 md:border-r border-slate-700 p-2 relative">
+									<span class="absolute top-4 left-4 bg-red-900/90 text-red-300 text-[10px] font-mono px-2 py-1 rounded border border-red-700 z-10 shadow-lg backdrop-blur-sm">KALI LINUX (ATTACK)</span>
+									<div class="h-64 flex items-center justify-center overflow-hidden">
+										<img src="/img/soc-lab/nmap-scan.png" alt="Escaneo de red con Nmap desde Kali Linux" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+									</div>
+								</div>
+
+								<div class="flex flex-col p-2 relative">
+									<span class="absolute top-4 left-4 bg-sky-900/90 text-sky-300 text-[10px] font-mono px-2 py-1 rounded border border-sky-700 z-10 shadow-lg backdrop-blur-sm">WAZUH SIEM (DEFENSE)</span>
+									<div class="h-64 flex items-center justify-center overflow-hidden">
+										<img src="/img/soc-lab/wazuh-fortigate-log.png" alt="Log de Wazuh capturando el evento de FortiGate mediante Syslog" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+									</div>
+								</div>
+
+							</div>
+							
+							<div class="p-5 border-t border-slate-700">
+								<h4 class="text-sky-400 font-bold text-base mb-2">Correlación XDR: Reconocimiento de Red (T1595)</h4>
+								<p class="text-slate-400 text-sm leading-relaxed"><strong>Verificación de telemetría perimetral:</strong> A la izquierda, ejecución de un escaneo rápido de puertos desde la infraestructura de ataque (10.10.10.50). A la derecha, el SIEM captura e indexa instantáneamente el tráfico descartado reportado por el firewall FortiGate a través de Syslog, validando la visibilidad inter-VLAN sin enmascaramiento NAT.</p>
+							</div>
+						</div>
+
+					</div>
+					<div class="mt-8 border-t border-slate-700/50 pt-8">
+							<h3 class="text-xl font-bold text-white mb-6 border-l-4 border-red-500 pl-4">Caso de Estudio: Fuerza Bruta SMB (T1110)</h3>
+							
+							<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+								<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 flex flex-col h-full">
+									<span class="absolute top-4 left-4 bg-red-900/90 text-red-300 text-[10px] font-mono px-2 py-1 rounded border border-red-700 z-10 shadow-lg backdrop-blur-sm">ACTO I: RED TEAM</span>
+									<div class="aspect-video bg-slate-900 flex items-center justify-center p-2">
+										<img src="/img/soc-lab/crackmapexec-attack.png" alt="Ataque de fuerza bruta con CrackMapExec" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+									</div>
+									<div class="p-4 border-t border-slate-700 flex-grow">
+										<h4 class="text-red-400 font-bold text-sm mb-1">Ejecución Ofensiva</h4>
+										<p class="text-slate-400 text-xs">Simulación de ataque de diccionario contra el protocolo SMB del Controlador de Dominio (10.20.20.10) forzando el usuario 'jperez' con herramientas de red.</p>
+									</div>
+								</div>
+
+								<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 flex flex-col h-full">
+									<span class="absolute top-4 left-4 bg-indigo-900/90 text-indigo-300 text-[10px] font-mono px-2 py-1 rounded border border-indigo-700 z-10 shadow-lg backdrop-blur-sm">ACTO II: ANALISTA TIER 2</span>
+									<div class="aspect-video bg-slate-900 flex items-center justify-center p-2">
+										<img src="/img/soc-lab/wazuh-discover-bruteforce.png" alt="Logs de Wazuh detectando fallos de inicio de sesión" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+									</div>
+									<div class="p-4 border-t border-slate-700 flex-grow">
+										<h4 class="text-indigo-400 font-bold text-sm mb-1">Detección Cruda (XDR)</h4>
+										<p class="text-slate-400 text-xs">Aislamiento de eventos en Wazuh Discover. Trazabilidad de la cascada de fallos (Logon failure) y el éxito final, mapeados a tácticas de Valid Accounts.</p>
+									</div>
+								</div>
+
+								<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 flex flex-col h-full">
+									<span class="absolute top-4 left-4 bg-emerald-900/90 text-emerald-300 text-[10px] font-mono px-2 py-1 rounded border border-emerald-700 z-10 shadow-lg backdrop-blur-sm">ACTO III: MANAGER SOC</span>
+									<div class="aspect-video bg-slate-900 flex items-center justify-center p-2">
+										<img src="/img/soc-lab/wazuh-dashboard-intelligence.png" alt="Dashboard de Wazuh con métricas e inteligencia" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+									</div>
+									<div class="p-4 border-t border-slate-700 flex-grow">
+										<h4 class="text-emerald-400 font-bold text-sm mb-1">Inteligencia Estratégica</h4>
+										<p class="text-slate-400 text-xs">Traducción de los logs a métricas ejecutivas, mostrando el impacto en los requerimientos de cumplimiento PCI DSS (10.2.4) y el top de alertas de seguridad.</p>
+									</div>
+								</div>
+
+							</div>
+						</div>
+				</section>
+			</article>
+		</div>
+
+		<div id="imageModal" class="fixed inset-0 z-[100] hidden bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out transition-all duration-300">
+			<span class="absolute top-6 right-8 text-slate-400 text-5xl font-light cursor-pointer hover:text-indigo-400 transition-colors">&times;</span>
+			<img id="modalImg" class="max-w-full max-h-full rounded-lg shadow-2xl shadow-black/50 border border-slate-700 object-contain" src="" alt="Vista ampliada">
+		</div>
+	</main>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const modal = document.getElementById('imageModal');
+			const modalImg = document.getElementById('modalImg') as HTMLImageElement;
+			const images = document.querySelectorAll('section.mt-16 img'); 
+
+			images.forEach(img => {
+				const image = img as HTMLImageElement;
+				image.style.cursor = 'zoom-in';
+				image.addEventListener('click', () => {
+					modalImg.src = image.src;
+					modal.classList.remove('hidden');
+				});
+			});
+
+			modal.addEventListener('click', () => {
+				modal.classList.add('hidden');
+			});
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					modal.classList.add('hidden');
+				}
+			});
+		});
+	</script>
+</Layout>
