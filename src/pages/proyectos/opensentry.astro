@@ -1,0 +1,77 @@
+---
+import MainLayout from '../../layouts/main.astro';
+---
+
+<MainLayout title="OpenSentry SOAR | Portfolio de Francisco J. Alpuente">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        
+        <header class="mb-12 border-b border-slate-700/50 pb-8">
+            <a href="/proyectos" class="text-blue-400 hover:text-blue-300 text-sm font-medium mb-6 inline-block">← Volver a Proyectos</a>
+            <h1 class="text-4xl font-extrabold text-white mb-4">OpenSentry (SOAR Autónomo)</h1>
+            <p class="text-xl text-gray-400">Orquestación, Automatización y Respuesta de Seguridad de Código Abierto.</p>
+        </header>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-4">Descripción General</h2>
+            <p class="text-gray-300 leading-relaxed mb-6">
+                Diseño y desarrollo backend de OpenSentry, una plataforma SOAR autónoma construida desde cero. Actúa como el "cerebro" central de un equipo de operaciones de seguridad, exponiendo una API REST capaz de ingerir alertas estandarizadas de cualquier SIEM, enriquecerlas con inteligencia de amenazas externa y ejecutar acciones de contención en firewalls y directorios activos, reduciendo el tiempo de respuesta (MTTR) de horas a segundos.
+            </p>
+            
+            <div class="bg-slate-800/40 border border-slate-700/50 p-6 rounded-xl">
+                <h3 class="text-lg font-semibold text-white mb-3">Stack Tecnológico del Producto</h3>
+                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                    <li><strong class="text-blue-400">Motor Core:</strong> Python (Flask, SQLite, Requests, Telebot, ipaddress, WinRM).</li>
+                    <li><strong class="text-blue-400">Gestión de Tareas:</strong> APScheduler (cuarentenas dinámicas y auto-remediación).</li>
+                    <li><strong class="text-blue-400">Frontend (Dashboard):</strong> HTML5, JavaScript nativo, Tailwind CSS.</li>
+                    <li><strong class="text-blue-400">Integraciones Nativas:</strong> APIs de Fortinet (FortiOS), Telegram, VirusTotal, AbuseIPDB, AlienVault OTX.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="mb-12">
+            <img src="/img/opensentry/dashboard-incidentes.png" alt="Dashboard de OpenSentry" class="rounded-xl border border-slate-700/50 shadow-2xl w-full">
+            <p class="text-center text-sm text-gray-500 mt-3">Panel de control web nativo (Case Management) conectado a SQLite.</p>
+        </div>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">Arquitectura y Funcionalidades Clave</h2>
+            
+            <div class="space-y-8 text-gray-300">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-2">1. Ingesta Estandarizada por API REST</h3>
+                    <p>OpenSentry cuenta con un motor agnóstico que recibe webhooks en formato JSON. Evalúa las amenazas basándose directamente en las tácticas del framework MITRE ATT&CK, permitiendo integrarse con cualquier SIEM del mercado sin depender de descripciones de texto volátiles.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">2. Threat Intel Multiplexer (Tríada CTI)</h3>
+                        <p>Sistema de enriquecimiento asíncrono. Antes de ejecutar una acción, el SOAR triangula la reputación del atacante consultando simultáneamente múltiples fuentes (VirusTotal, AbuseIPDB y AlienVault OTX), calculando un Score de riesgo unificado para evitar falsos positivos.</p>
+                    </div>
+                    <img src="/img/opensentry/telegram-cti.png" alt="Alerta CTI Telegram" class="rounded-xl border border-slate-700/50 shadow-lg">
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-2">3. Motor de Contención Multicapa e Idempotente</h3>
+                    <ul class="list-disc list-inside space-y-1 ml-4 mt-2">
+                        <li><strong>Perímetro:</strong> Ejecuta baneos automáticos interactuando con firewalls físicos/virtuales (Fortinet) mediante API.</li>
+                        <li><strong>Identidad:</strong> Aísla cuentas comprometidas conectándose remotamente a entornos Active Directory (WinRM) aplicando el Principio de Mínimo Privilegio (PoLP).</li>
+                    </ul>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <img src="/img/opensentry/telegram-intervencion.png" alt="ChatOps Telegram" class="rounded-xl border border-slate-700/50 shadow-lg order-2 md:order-1">
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-xl font-semibold text-white mb-2">4. ChatOps (Human-in-the-Loop)</h3>
+                        <p>Para amenazas ambiguas o de bajo nivel de confianza, la plataforma suspende la ejecución automática y solicita autorización humana mediante un Bot de Telegram interactivo, equilibrando la automatización con el criterio del analista.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-2">5. Auto-Cuarentenas y Fail-Safe</h3>
+                    <p>Cronjobs integrados evalúan continuamente el nivel de amenaza, liberando restricciones automáticamente tras 4 o 24 horas. Además, incluye lógica de protección interna mediante <strong>CIDR Whitelisting</strong>, garantizando que el orquestador nunca bloquee infraestructura crítica por accidente.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</MainLayout>
