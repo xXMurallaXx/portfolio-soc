@@ -19,11 +19,12 @@ import MainLayout from '../../layouts/main.astro';
             
             <div class="bg-slate-800/40 border border-slate-700/50 p-6 rounded-xl">
                 <h3 class="text-lg font-semibold text-white mb-3">Stack Tecnológico del Producto</h3>
-                <ul class="list-disc list-inside text-gray-300 space-y-2">
-                    <li><strong class="text-blue-400">Motor Core:</strong> Python (Flask, SQLite, Requests, Telebot, ipaddress, WinRM).</li>
-                    <li><strong class="text-blue-400">Gestión de Tareas:</strong> APScheduler (cuarentenas dinámicas y auto-remediación).</li>
-                    <li><strong class="text-blue-400">Frontend (Dashboard):</strong> HTML5, JavaScript nativo, Tailwind CSS.</li>
-                    <li><strong class="text-blue-400">Integraciones Nativas:</strong> APIs de Fortinet (FortiOS), Telegram, VirusTotal, AbuseIPDB, AlienVault OTX.</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 list-inside text-gray-300">
+                    <li><strong class="text-blue-400">Motor Core:</strong> Python (Flask, SQLite, Requests)</li>
+                    <li><strong class="text-blue-400">Automatización:</strong> PowerShell, WinRM, Telebot</li>
+                    <li><strong class="text-blue-400">Endpoint & SIEM:</strong> Wazuh API, Sysmon</li>
+                    <li><strong class="text-blue-400">Inteligencia:</strong> MITRE ATT&CK, RegEx</li>
+                    <li><strong class="text-blue-400">Integraciones:</strong> FortiOS API, VirusTotal, AbuseIPDB</li>
                 </ul>
             </div>
         </section>
@@ -33,9 +34,8 @@ import MainLayout from '../../layouts/main.astro';
             <p class="text-center text-sm text-gray-500 mt-3">Panel de control web nativo (Case Management) conectado a SQLite.</p>
         </div>
 
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-white mb-6">Arquitectura y Funcionalidades Clave</h2>
-            
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white mb-6">Arquitectura Base (Perímetro e Identidad)</h2>
             <div class="space-y-8 text-gray-300">
                 <div>
                     <h3 class="text-xl font-semibold text-white mb-2">1. Ingesta Estandarizada por API REST</h3>
@@ -50,25 +50,47 @@ import MainLayout from '../../layouts/main.astro';
                     <img src="/img/opensentry/telegram-cti.png" alt="Alerta CTI Telegram" class="rounded-xl border border-slate-700/50 shadow-lg">
                 </div>
 
-                <div>
-                    <h3 class="text-xl font-semibold text-white mb-2">3. Motor de Contención Multicapa e Idempotente</h3>
-                    <ul class="list-disc list-inside space-y-1 ml-4 mt-2">
-                        <li><strong>Perímetro:</strong> Ejecuta baneos automáticos interactuando con firewalls físicos/virtuales (Fortinet) mediante API.</li>
-                        <li><strong>Identidad:</strong> Aísla cuentas comprometidas conectándose remotamente a entornos Active Directory (WinRM) aplicando el Principio de Mínimo Privilegio (PoLP).</li>
-                    </ul>
-                </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                     <img src="/img/opensentry/telegram-intervencion.png" alt="ChatOps Telegram" class="rounded-xl border border-slate-700/50 shadow-lg order-2 md:order-1">
                     <div class="order-1 md:order-2">
-                        <h3 class="text-xl font-semibold text-white mb-2">4. ChatOps (Human-in-the-Loop)</h3>
+                        <h3 class="text-xl font-semibold text-white mb-2">3. ChatOps (Human-in-the-Loop)</h3>
                         <p>Para amenazas ambiguas o de bajo nivel de confianza, la plataforma suspende la ejecución automática y solicita autorización humana mediante un Bot de Telegram interactivo, equilibrando la automatización con el criterio del analista.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div>
-                    <h3 class="text-xl font-semibold text-white mb-2">5. Auto-Cuarentenas y Fail-Safe</h3>
-                    <p>Cronjobs integrados evalúan continuamente el nivel de amenaza, liberando restricciones automáticamente tras 4 o 24 horas. Además, incluye lógica de protección interna mediante <strong>CIDR Whitelisting</strong>, garantizando que el orquestador nunca bloquee infraestructura crítica por accidente.</p>
+        <section class="mb-12 border-t border-slate-700/50 pt-12">
+            <div class="mb-8">
+                <span class="text-blue-400 font-mono text-xs font-semibold tracking-wider uppercase mb-2 block">Nueva Implementación</span>
+                <h2 class="text-3xl font-extrabold text-white mb-4">Módulo EDR: Protección Integral de Endpoints</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    OpenSentry incorpora un módulo DevSecOps diseñado para actuar con precisión quirúrgica. Funciona como el "músculo" del SOC, evaluando las alertas del SIEM y ejecutando acciones de contención en milisegundos mediante un motor dual que neutraliza tanto amenazas conocidas como Zero-Days.
+                </p>
+            </div>
+
+            <div class="space-y-12 text-gray-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                            🛡️ Motor de Eliminación Activa
+                        </h3>
+                        <p>Basado en Threat Intelligence. El sistema intercepta la ejecución de nuevos procesos a nivel de Kernel (Sysmon). El SOAR cruza el Hash criptográfico con VirusTotal. Si se confirma como malicioso, extrae dinámicamente el nombre del ejecutable y ordena al agente la aniquilación inmediata del proceso, sin importar cómo el atacante lo haya camuflado.</p>
+                    </div>
+                    <img src="/img/opensentry/edr-eliminacion.png" alt="Eliminación activa en consola" class="rounded-xl border border-slate-700/50 shadow-lg font-mono">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="grid grid-rows-2 gap-4 order-2 md:order-1">
+                        <img src="/img/opensentry/edr-wazuh-mitre.png" alt="Alerta MITRE en Wazuh" class="rounded-xl border border-slate-700/50 shadow-lg">
+                        <img src="/img/opensentry/edr-telegram-cuarentena.png" alt="Cuarentena en Telegram" class="rounded-xl border border-slate-700/50 shadow-lg">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                            🛑 Contención Dinámica Zero-Day
+                        </h3>
+                        <p>Basado en comportamiento heurístico para evadir firmas. El motor detecta intenciones maliciosas como intentos de destrucción de Shadow Copies (típico de Ransomware - MITRE T1490). Ante esta alerta letal, el SOAR aísla la máquina de la red corporativa reconfigurando su firewall local en tiempo real, bloqueando el movimiento lateral pero manteniendo una línea segura con el SOC para investigación forense.</p>
+                    </div>
                 </div>
             </div>
         </section>
