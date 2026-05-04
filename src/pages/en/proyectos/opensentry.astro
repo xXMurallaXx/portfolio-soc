@@ -1,0 +1,99 @@
+---
+import MainLayout from '../../../layouts/main.astro';
+---
+
+<MainLayout title="OpenSentry SOAR | Francisco J. Alpuente Portfolio">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        
+        <header class="mb-12 border-b border-slate-700/50 pb-8">
+            <a href="/en/proyectos" class="text-blue-400 hover:text-blue-300 text-sm font-medium mb-6 inline-block">← Back to Projects</a>
+            <h1 class="text-4xl font-extrabold text-white mb-4">OpenSentry (Autonomous SOAR)</h1>
+            <p class="text-xl text-gray-400">Open Source Security Orchestration, Automation, and Response.</p>
+        </header>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-4">Overview</h2>
+            <p class="text-gray-300 leading-relaxed mb-6">
+                Backend design and development of OpenSentry, an autonomous SOAR platform built from scratch. It acts as the central "brain" of a security operations team, exposing a REST API capable of ingesting standardized alerts from any SIEM, enriching them with external threat intelligence, and executing containment actions in firewalls and active directories, reducing the Mean Time To Respond (MTTR) from hours to seconds.
+            </p>
+            
+            <div class="bg-slate-800/40 border border-slate-700/50 p-6 rounded-xl">
+                <h3 class="text-lg font-semibold text-white mb-3">Product Tech Stack</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 list-inside text-gray-300">
+                    <li><strong class="text-blue-400">Core Engine:</strong> Python (Flask, SQLite, Requests)</li>
+                    <li><strong class="text-blue-400">Automation:</strong> PowerShell, WinRM, Telebot</li>
+                    <li><strong class="text-blue-400">Endpoint & SIEM:</strong> Wazuh API, Sysmon</li>
+                    <li><strong class="text-blue-400">Intelligence:</strong> MITRE ATT&CK, RegEx</li>
+                    <li><strong class="text-blue-400">Integrations:</strong> FortiOS API, VirusTotal, AbuseIPDB</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="mb-12">
+            <img src="/img/opensentry/dashboard-incidentes.png" alt="OpenSentry Dashboard" class="rounded-xl border border-slate-700/50 shadow-2xl w-full">
+            <p class="text-center text-sm text-gray-500 mt-3">Native web dashboard (Case Management) connected to SQLite.</p>
+        </div>
+
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-white mb-6">Core Architecture (Perimeter & Identity)</h2>
+            <div class="space-y-8 text-gray-300">
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-2">1. Standardized REST API Ingestion</h3>
+                    <p>OpenSentry features an agnostic engine that receives webhooks in JSON format. It evaluates threats based directly on the MITRE ATT&CK framework tactics, allowing integration with any SIEM on the market without relying on volatile text descriptions.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">2. Threat Intel Multiplexer (CTI Triad)</h3>
+                        <p>Asynchronous enrichment system. Before executing an action, the SOAR triangulates the attacker's reputation by simultaneously querying multiple sources (VirusTotal, AbuseIPDB, and AlienVault OTX), calculating a unified Risk Score to prevent false positives.</p>
+                    </div>
+                    <img src="/img/opensentry/telegram-cti.png" alt="CTI Telegram Alert" class="rounded-xl border border-slate-700/50 shadow-lg">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <img src="/img/opensentry/telegram-intervencion.png" alt="Telegram ChatOps" class="rounded-xl border border-slate-700/50 shadow-lg order-2 md:order-1">
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-xl font-semibold text-white mb-2">3. ChatOps (Human-in-the-Loop)</h3>
+                        <p>For ambiguous or low-confidence threats, the platform suspends automatic execution and requests human authorization via an interactive Telegram Bot, balancing automation with analyst judgment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 border-t border-slate-700/50 pt-12">
+            <div class="mb-8">
+                <span class="text-blue-400 font-mono text-xs font-semibold tracking-wider uppercase mb-2 block">New Implementation</span>
+                <h2 class="text-3xl font-extrabold text-white mb-4">EDR Module: Comprehensive Endpoint Protection</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    OpenSentry incorporates a DevSecOps module designed to act with surgical precision. It functions as the "muscle" of the SOC, evaluating SIEM alerts and executing containment actions in milliseconds using a dual engine that neutralizes both known threats and Zero-Days.
+                </p>
+            </div>
+
+            <div class="space-y-12 text-gray-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                            🛡️ Active Elimination Engine
+                        </h3>
+                        <p>Based on Threat Intelligence. The system intercepts the execution of new processes at the Kernel level (Sysmon). The SOAR cross-references the cryptographic Hash with VirusTotal. If confirmed as malicious, it dynamically extracts the executable's name and orders the agent to immediately annihilate the process, regardless of how the attacker disguised it.</p>
+                    </div>
+                    <img src="/img/opensentry/edr-eliminacion.png" alt="Active elimination in console" class="rounded-xl border border-slate-700/50 shadow-lg font-mono">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="grid grid-rows-2 gap-4 order-2 md:order-1">
+                        <img src="/img/opensentry/edr-wazuh-mitre.png" alt="MITRE Alert in Wazuh" class="rounded-xl border border-slate-700/50 shadow-lg">
+                        <img src="/img/opensentry/edr-telegram-cuarentena.png" alt="Quarantine in Telegram" class="rounded-xl border border-slate-700/50 shadow-lg">
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                            🛑 Dynamic Zero-Day Containment
+                        </h3>
+                        <p>Based on heuristic behavior to evade signatures. The engine detects malicious intent such as attempts to destroy Shadow Copies (typical of Ransomware - MITRE T1490). In the face of this lethal alert, the SOAR isolates the machine from the corporate network by real-time reconfiguration of its local firewall, blocking lateral movement while maintaining a secure line with the SOC for forensic investigation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</MainLayout>
