@@ -1,99 +1,226 @@
 ---
-import MainLayout from '../../layouts/main.astro';
+import Layout from '../../layouts/main.astro';
 ---
 
-<MainLayout title="OpenSentry SOAR | Portfolio de Francisco J. Alpuente">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        
-        <header class="mb-12 border-b border-slate-700/50 pb-8">
-            <a href="/proyectos" class="text-blue-400 hover:text-blue-300 text-sm font-medium mb-6 inline-block">← Volver a Proyectos</a>
-            <h1 class="text-4xl font-extrabold text-white mb-4">OpenSentry (SOAR Autónomo)</h1>
-            <p class="text-xl text-gray-400">Orquestación, Automatización y Respuesta de Seguridad de Código Abierto.</p>
-        </header>
+<Layout title="OpenSentry SOAR | DevSecOps & Automatización">
+	<main class="min-h-screen p-8 bg-slate-900">
+		<div class="max-w-5xl mx-auto w-full mt-10">
+			
+			<a href="/proyectos" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-mono text-sm mb-8 transition-colors">
+				<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+				Volver a Proyectos
+			</a>
 
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-white mb-4">Descripción General</h2>
-            <p class="text-gray-300 leading-relaxed mb-6">
-                Diseño y desarrollo backend de OpenSentry, una plataforma SOAR autónoma construida desde cero. Actúa como el "cerebro" central de un equipo de operaciones de seguridad, exponiendo una API REST capaz de ingerir alertas estandarizadas de cualquier SIEM, enriquecerlas con inteligencia de amenazas externa y ejecutar acciones de contención en firewalls y directorios activos, reduciendo el tiempo de respuesta (MTTR) de horas a segundos.
-            </p>
-            
-            <div class="bg-slate-800/40 border border-slate-700/50 p-6 rounded-xl">
-                <h3 class="text-lg font-semibold text-white mb-3">Stack Tecnológico del Producto</h3>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 list-inside text-gray-300">
-                    <li><strong class="text-blue-400">Motor Core:</strong> Python (Flask, SQLite, Requests)</li>
-                    <li><strong class="text-blue-400">Automatización:</strong> PowerShell, WinRM, Telebot</li>
-                    <li><strong class="text-blue-400">Endpoint & SIEM:</strong> Wazuh API, Sysmon</li>
-                    <li><strong class="text-blue-400">Inteligencia:</strong> MITRE ATT&CK, RegEx</li>
-                    <li><strong class="text-blue-400">Integraciones:</strong> FortiOS API, VirusTotal, AbuseIPDB</li>
-                </ul>
-            </div>
-        </section>
+			<header class="mb-12">
+				<div class="flex items-center gap-3 mb-4">
+					<span class="text-blue-400 font-mono text-xs font-semibold tracking-wider uppercase bg-blue-900/30 px-3 py-1 rounded-full border border-blue-700/50">DevSecOps & SOAR</span>
+					<span class="text-emerald-400 font-mono text-xs font-semibold tracking-wider uppercase bg-emerald-900/30 px-3 py-1 rounded-full border border-emerald-700/50 flex items-center gap-2">
+						<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+						v0.6.0-alpha
+					</span>
+					<a href="https://github.com/xXMurallaXx/OpenSentry-SOAR" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors ml-auto flex items-center gap-2 font-mono text-sm border border-slate-700 hover:border-slate-500 bg-slate-800 px-3 py-1 rounded">
+						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+						Repositorio
+					</a>
+				</div>
+				<h1 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">OpenSentry (SOAR Autónomo)</h1>
+				<p class="text-xl text-slate-400 leading-relaxed mb-8">
+					Plataforma SOAR agnóstica de desarrollo propio. Actúa como el "cerebro" central del SOC, orquestando respuestas a incidentes (DFIR), enriqueciendo alertas con CTI y ejecutando aislamientos automáticos bajo una arquitectura Zero Trust y generación autónoma de playbooks vía IA local.
+				</p>
+				
+				<div class="flex flex-wrap gap-2">
+					<span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded border border-slate-600 font-mono">Python / Flask</span>
+					<span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded border border-slate-600 font-mono">HashiCorp Vault</span>
+					<span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded border border-slate-600 font-mono">Ollama (RAG Local)</span>
+					<span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded border border-slate-600 font-mono">Reglas Sigma</span>
+					<span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded border border-slate-600 font-mono">Wazuh & Fortinet API</span>
+				</div>
+			</header>
 
-        <div class="mb-12">
-            <img src="/img/opensentry/dashboard-incidentes.png" alt="Dashboard de OpenSentry" class="rounded-xl border border-slate-700/50 shadow-2xl w-full">
-            <p class="text-center text-sm text-gray-500 mt-3">Panel de control web nativo (Case Management) conectado a SQLite.</p>
-        </div>
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 border-l-4 border-emerald-500 p-6 rounded-r-xl mb-12 shadow-lg relative overflow-hidden">
+					<div class="absolute -right-4 -top-4 text-slate-800/50">
+						<svg class="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+					</div>
+					<div class="relative z-10">
+						<h2 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+							<span class="text-emerald-400">⚡</span> Filosofía de Diseño: De la Fábrica al SOC
+						</h2>
+						<p class="text-slate-300 text-sm leading-relaxed max-w-3xl">
+							Tras 19 años operando maquinaria crítica y gestionando líneas de producción ininterrumpidas, he aprendido que <strong>el tiempo de inactividad no es una opción</strong>. OpenSentry nace de inyectar esta estricta disciplina industrial en la ingeniería DevSecOps. El rigor normativo, la tolerancia cero a fallos y la resiliencia operativa que exige una fábrica están integrados en el código de este SOAR: procesos estandarizados, contingencias automatizadas (Fail-Safe) y una contención 24/7 sin fatiga de alertas.
+						</p>
+					</div>
+				</div>
 
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold text-white mb-6">Arquitectura Base (Perímetro e Identidad)</h2>
-            <div class="space-y-8 text-gray-300">
-                <div>
-                    <h3 class="text-xl font-semibold text-white mb-2">1. Ingesta Estandarizada por API REST</h3>
-                    <p>OpenSentry cuenta con un motor agnóstico que recibe webhooks en formato JSON. Evalúa las amenazas basándose directamente en las tácticas del framework MITRE ATT&CK, permitiendo integrarse con cualquier SIEM del mercado sin depender de descripciones de texto volátiles.</p>
-                </div>
+			<article class="prose prose-invert prose-slate max-w-none">
+				
+				<h2 class="text-2xl font-bold text-white mb-6">Arquitectura Enterprise: Motor Core</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+					
+					<div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Gestión de Secretos Zero Trust</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">
+							Purgado total de credenciales en disco (<code class="text-blue-300 text-xs">.env</code>). Arquitectura de identidad máquina-a-máquina (AppRole) contra <strong>HashiCorp Vault</strong>. Secretos entregados bajo Principio de Mínimo Privilegio (PoLP) con políticas Read-Only y Network Binding (protección anti-robo de tokens validando la IP de origen).
+						</p>
+					</div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2">2. Threat Intel Multiplexer (Tríada CTI)</h3>
-                        <p>Sistema de enriquecimiento asíncrono. Antes de ejecutar una acción, el SOAR triangula la reputación del atacante consultando simultáneamente múltiples fuentes (VirusTotal, AbuseIPDB y AlienVault OTX), calculando un Score de riesgo unificado para evitar falsos positivos.</p>
-                    </div>
-                    <img src="/img/opensentry/telegram-cti.png" alt="Alerta CTI Telegram" class="rounded-xl border border-slate-700/50 shadow-lg">
-                </div>
+					<div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Sentry AI: Playbooks Autónomos</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">
+							Motor LLM táctico (Llama 3 / Ollama) mediante arquitectura <strong>RAG 100% local</strong> para máxima privacidad. Analiza el ecosistema del SOAR y redacta dinámicamente la lógica de contención (archivos YAML) ante nuevas amenazas, mitigando el tiempo de ingeniería manual.
+						</p>
+					</div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <img src="/img/opensentry/telegram-intervencion.png" alt="ChatOps Telegram" class="rounded-xl border border-slate-700/50 shadow-lg order-2 md:order-1">
-                    <div class="order-1 md:order-2">
-                        <h3 class="text-xl font-semibold text-white mb-2">3. ChatOps (Human-in-the-Loop)</h3>
-                        <p>Para amenazas ambiguas o de bajo nivel de confianza, la plataforma suspende la ejecución automática y solicita autorización humana mediante un Bot de Telegram interactivo, equilibrando la automatización con el criterio del analista.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+					<div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Motor Sigma y Purple Team Simulator</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">
+							Inyección de reglas <strong>Sigma</strong> en Wazuh (Process Creation, Sysmon, LotL). Integración de simulador continuo en el dashboard (Purple Team) que inyecta payloads MITRE vía WinRM contra los agentes para auditar la cadena de detección y medir el MTTD/MTTR.
+						</p>
+					</div>
 
-        <section class="mb-12 border-t border-slate-700/50 pt-12">
-            <div class="mb-8">
-                <span class="text-blue-400 font-mono text-xs font-semibold tracking-wider uppercase mb-2 block">Nueva Implementación</span>
-                <h2 class="text-3xl font-extrabold text-white mb-4">Módulo EDR: Protección Integral de Endpoints</h2>
-                <p class="text-gray-300 leading-relaxed">
-                    OpenSentry incorpora un módulo DevSecOps diseñado para actuar con precisión quirúrgica. Funciona como el "músculo" del SOC, evaluando las alertas del SIEM y ejecutando acciones de contención en milisegundos mediante un motor dual que neutraliza tanto amenazas conocidas como Zero-Days.
-                </p>
-            </div>
+					<div class="bg-slate-800/40 p-6 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-colors">
+						<h3 class="text-lg font-bold text-white mb-3">Phishing Monitor & CTI Multiplexer</h3>
+						<p class="text-slate-400 text-sm leading-relaxed">
+							Triaje automático de reportes L1. El motor extrae artefactos del correo y ejecuta consultas simultáneas en <strong>VirusTotal, AbuseIPDB y AlienVault OTX</strong>. Si el veredicto es malicioso, purga el buzón, aísla la evidencia en una bóveda e inyecta un ticket de incidente.
+						</p>
+					</div>
 
-            <div class="space-y-12 text-gray-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div>
-                        <h3 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                            🛡️ Motor de Eliminación Activa
-                        </h3>
-                        <p>Basado en Threat Intelligence. El sistema intercepta la ejecución de nuevos procesos a nivel de Kernel (Sysmon). El SOAR cruza el Hash criptográfico con VirusTotal. Si se confirma como malicioso, extrae dinámicamente el nombre del ejecutable y ordena al agente la aniquilación inmediata del proceso, sin importar cómo el atacante lo haya camuflado.</p>
-                    </div>
-                    <img src="/img/opensentry/edr-eliminacion.png" alt="Eliminación activa en consola" class="rounded-xl border border-slate-700/50 shadow-lg font-mono">
-                </div>
+				</div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div class="grid grid-rows-2 gap-4 order-2 md:order-1">
-                        <img src="/img/opensentry/edr-wazuh-mitre.png" alt="Alerta MITRE en Wazuh" class="rounded-xl border border-slate-700/50 shadow-lg">
-                        <img src="/img/opensentry/edr-telegram-cuarentena.png" alt="Cuarentena en Telegram" class="rounded-xl border border-slate-700/50 shadow-lg">
-                    </div>
-                    <div class="order-1 md:order-2">
-                        <h3 class="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                            🛑 Contención Dinámica Zero-Day
-                        </h3>
-                        <p>Basado en comportamiento heurístico para evadir firmas. El motor detecta intenciones maliciosas como intentos de destrucción de Shadow Copies (típico de Ransomware - MITRE T1490). Ante esta alerta letal, el SOAR aísla la máquina de la red corporativa reconfigurando su firewall local en tiempo real, bloqueando el movimiento lateral pero manteniendo una línea segura con el SOC para investigación forense.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+				<h2 class="text-2xl font-bold text-white mb-6">Motores de Contención y Respuesta Activa</h2>
+				<div class="grid grid-cols-1 gap-6 mb-12">
+					
+					<div class="bg-slate-800/20 border-l-4 border-red-500 p-6 rounded-r-xl">
+						<h3 class="text-lg font-bold text-white mb-2">Seguridad Perimetral (FortiGate)</h3>
+						<p class="text-slate-300 leading-relaxed text-sm mb-2">
+							<strong>Bloqueo Autónomo:</strong> Inyección dinámica de IPs atacantes en grupos de bloqueo del firewall ante intentos de intrusión externa.
+						</p>
+						<p class="text-slate-300 leading-relaxed text-sm">
+							<strong>Deduplicación de Estado:</strong> El motor analiza el estado de la red antes de actuar, ignorando alertas concurrentes masivas para proteger al propio Firewall de ataques de denegación de servicio (DoS) generados internamente.
+						</p>
+					</div>
 
-    </div>
-</MainLayout>
+					<div class="bg-slate-800/20 border-l-4 border-blue-500 p-6 rounded-r-xl">
+						<h3 class="text-lg font-bold text-white mb-2">Endpoints e Identidades (Wazuh & Active Directory)</h3>
+						<p class="text-slate-300 leading-relaxed text-sm mb-2">
+							<strong>Aislamiento "Lifeline":</strong> Interceptación de comandos destructivos (ej. Ransomware/vssadmin) y aislamiento de red en milisegundos a través del firewall de Windows, manteniendo un túnel abierto hacia la IP del SOC para preservar telemetría y ejecución de terminación de procesos en tiempo real.
+						</p>
+						<p class="text-slate-300 leading-relaxed text-sm">
+							<strong>Contención AD PoLP:</strong> Deshabilitación de identidades comprometidas utilizando una cuenta de servicio dedicada (<code class="text-blue-300 text-xs">svc_opensentry</code>) con delegación granular estricta sobre <code>userAccountControl</code>, evitando por completo el uso de cuentas Domain Admin.
+						</p>
+					</div>
+
+					<div class="bg-slate-800/20 border-l-4 border-amber-500 p-6 rounded-r-xl">
+						<h3 class="text-lg font-bold text-white mb-2">Cyber Deception (Honeytokens)</h3>
+						<p class="text-slate-300 leading-relaxed text-sm">
+							Despliegue estratégico de archivos señuelo en la red corporativa. Monitorización exhaustiva mediante File Integrity Monitoring (FIM) y listas de control de acceso del sistema (SACLs). Cualquier interacción no autorizada dispara alertas tácticas (MITRE T1083) que OpenSentry contiene de forma inmediata.
+						</p>
+					</div>
+
+				</div>
+
+				<section class="mt-16 border-t border-slate-800 pt-12">
+					<h2 class="text-2xl font-bold text-white mb-8 flex items-center">
+						<svg class="w-6 h-6 mr-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+						Evidencias del Sistema Operativo
+					</h2>
+					
+					<div class="grid grid-cols-1 gap-8">
+						
+						<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 p-2">
+							<div class="bg-slate-900 rounded-lg overflow-hidden relative">
+								<span class="absolute top-4 left-4 bg-blue-900/90 text-blue-300 text-[10px] font-mono px-2 py-1 rounded border border-blue-700 z-10 shadow-lg backdrop-blur-sm">DASHBOARD WEB</span>
+								<img src="/img/opensentry/purple-team-dashboard.png" alt="Dashboard de OpenSentry con simulador Purple Team" class="w-full object-cover">
+							</div>
+							<div class="p-4">
+								<h4 class="text-blue-400 font-bold text-base mb-1">Gestión de Incidentes & Simulador Purple Team</h4>
+								<p class="text-slate-400 text-sm">Interfaz gráfica mostrando la tabla de ticketing y el módulo inferior de simulacros ofensivos WinRM para validación de Cadena de Mando.</p>
+							</div>
+						</div>
+
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+							<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 p-2 flex flex-col">
+								<div class="bg-slate-900 rounded-lg overflow-hidden relative flex-grow flex items-center justify-center">
+									<span class="absolute top-4 left-4 bg-purple-900/90 text-purple-300 text-[10px] font-mono px-2 py-1 rounded border border-purple-700 z-10 shadow-lg backdrop-blur-sm">Llama 3 RAG</span>
+									<img src="/img/opensentry/sentry-ai.png" alt="Chat Sentry AI Assistant" class="w-full object-contain">
+								</div>
+								<div class="p-4 border-t border-slate-700/50 mt-2">
+									<h4 class="text-purple-400 font-bold text-sm mb-1">Sentry AI Assistant</h4>
+									<p class="text-slate-400 text-xs">Motor LLM local inyectado en el dashboard para asistencia táctica y creación dinámica de playbooks YAML.</p>
+								</div>
+							</div>
+
+							<div class="group relative rounded-xl overflow-hidden border border-slate-700 bg-slate-800/50 p-2 flex flex-col">
+								<div class="bg-slate-900 rounded-lg overflow-hidden relative flex-grow flex items-center justify-center">
+									<span class="absolute top-4 left-4 bg-emerald-900/90 text-emerald-300 text-[10px] font-mono px-2 py-1 rounded border border-emerald-700 z-10 shadow-lg backdrop-blur-sm">BACKEND TERMINAL</span>
+									<img src="/img/opensentry/phishing-monitor.png" alt="Terminal analizando phishing" class="w-full object-contain">
+								</div>
+								<div class="p-4 border-t border-slate-700/50 mt-2">
+									<h4 class="text-emerald-400 font-bold text-sm mb-1">Phishing Containment Protocol</h4>
+									<p class="text-slate-400 text-xs">Logs del motor extrayendo enlaces maliciosos, interactuando con el Multiplexer CTI (VirusTotal) y automatizando el ticketing.</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<section class="mt-16 border-t border-slate-800 pt-12">
+					<h2 class="text-2xl font-bold text-white mb-8 flex items-center">
+						<svg class="w-6 h-6 mr-3 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+						Operaciones SOC y Roadmap de Desarrollo
+					</h2>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+						
+						<div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-colors">
+							<h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+								Case Management & ChatOps
+							</h3>
+							<ul class="space-y-4 text-slate-400 text-sm">
+								<li class="flex items-start gap-3">
+									<span class="text-emerald-400 mt-0.5">▹</span>
+									<span><strong>Retención Dinámica:</strong> Purgado automatizado de cuarentenas basado en políticas de riesgo (ej. Escáneres de red 4h, Movimiento Lateral indefinido).</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-emerald-400 mt-0.5">▹</span>
+									<span><strong>Escudo Fail-Safe:</strong> Implementación de listas blancas (CIDR) estrictas para abortar contenciones accidentales sobre servidores críticos del dominio.</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-emerald-400 mt-0.5">▹</span>
+									<span><strong>Telegram ChatOps:</strong> Integración directa con Telegram para notificaciones push en tiempo real y solicitud de autorización manual (Human-in-the-Loop) para aislamientos severos.</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700 hover:border-purple-500/50 transition-colors">
+							<h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+								Roadmap Futuro (Hacia v1.0.0)
+							</h3>
+							<ul class="space-y-4 text-slate-400 text-sm">
+								<li class="flex items-start gap-3">
+									<span class="text-amber-400 mt-0.5">⌛</span>
+									<span><strong>RBAC Dashboard:</strong> Sistema de login con control de acceso basado en roles (Role-Based Access Control) para separar analistas L1 de administradores SOC.</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-amber-400 mt-0.5">⌛</span>
+									<span><strong>Motor YARA Nativo:</strong> Integración de reglas YARA para escaneo profundo de firmas de malware directamente sobre los archivos sospechosos extraídos.</span>
+								<li class="flex items-start gap-3">
+                                    <span class="text-amber-400 mt-0.5">⌛</span>
+                                    <span><strong>Visualización SOC Avanzada:</strong> Conexión de la base de datos a Grafana para proyectar paneles interactivos, mapas de calor de atacantes y telemetría en tiempo real.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-amber-400 mt-0.5">⌛</span>
+                                    <span><strong>Motor de Reportes Ejecutivos:</strong> Generación automática de informes mensuales (PDF) con métricas de negocio y tiempos de respuesta (MTTD/MTTR) para la gerencia.</span>
+                                </li>
+							</ul>
+						</div>
+
+					</div>
+				</section>
+
+			</article>
+		</div>
+	</main>
+</Layout>
